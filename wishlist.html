@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Thanh Lý Sinh Viên</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Title */
+        .page-title {
+            background-color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Wishlist Section */
+        .wishlist-section {
+            padding: 0 0 60px;
+        }
+        
+        .wishlist-empty {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .wishlist-empty i {
+            font-size: 4rem;
+            color: var(--gray-color);
+            margin-bottom: 20px;
+        }
+        
+        .wishlist-empty h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .wishlist-empty p {
+            color: var(--gray-color);
+            margin-bottom: 25px;
+        }
+        
+        .wishlist-empty .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .wishlist-empty .btn:hover {
+            background-color: #3367d6;
+        }
+        
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .wishlist-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        
+        .wishlist-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .wishlist-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .wishlist-actions button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--gray-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .wishlist-actions .remove-btn:hover {
+            background-color: var(--danger-color);
+            color: white;
+        }
+        
+        .wishlist-actions .cart-btn:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .wishlist-item:hover .item-image img {
+            transform: scale(1.05);
+        }
+        
+        .item-details {
+            padding: 15px;
+        }
+        
+        .item-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .item-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .item-location {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .item-seller {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .seller-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        
+        .seller-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .seller-name {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .wishlist-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .wishlist-count {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .wishlist-count span {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .wishlist-actions-bulk {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .wishlist-actions-bulk button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .wishlist-actions-bulk button i {
+            margin-right: 8px;
+        }
+        
+        .clear-btn {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .clear-btn:hover {
+            background-color: #e2e6ea;
+        }
+        
+        .add-all-btn {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .add-all-btn:hover {
+            background-color: #2d9348;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .wishlist-controls {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .wishlist-actions-bulk {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Chợ sinh viên 2H</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Danh mục</a>
+                <a href="wishlist.html" style="color: #4285f4;"><i class="fas fa-heart"></i> Yêu thích</a>
+                <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Đăng bán</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h2>Danh sách yêu thích của tôi</h2>
+            <p>Các mục bạn đã lưu để xem sau</p>
+        </div>
+    </section>
+    
+    <!-- Wishlist Section -->
+    <section class="wishlist-section">
+        <div class="container">
+            <!-- Wishlist Controls - This will be hidden when wishlist is empty -->
+            <div class="wishlist-controls">
+                <div class="wishlist-count">Bạn có <span>4</span> sản phẩm trong mục yêu thích</div>
+                <div class="wishlist-actions-bulk">
+                    <button class="clear-btn"><i class="fas fa-trash"></i> Xóa tất cả</button>
+                    <button class="add-all-btn"><i class="fas fa-shopping-cart"></i> Thêm tất cả vào giỏ hàng</button>
+                </div>
+            </div>
+            
+            <!-- Wishlist Items Grid -->
+            <div class="wishlist-grid">
+                <div class="wishlist-item">
+                    <div class="wishlist-actions">
+                        <button class="remove-btn" title="Remove from wishlist"><i class="fas fa-times"></i></button>
+                        <button class="cart-btn" title="Add to cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="item-image">
+                        <img src="giaitich1.jpg" alt="Calculus Textbook">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Giải tích 1</h3>
+                        <div class="item-price">70.000 ₫</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Ký túc xá toà 3</div>
+                        <p>Tình trạng tuyệt vời, hầu như không sử dụng. Tất cả các trang còn nguyên vẹn, không có điểm nổi bật.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Minga</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wishlist-item">
+                    <div class="wishlist-actions">
+                        <button class="remove-btn" title="Remove from wishlist"><i class="fas fa-times"></i></button>
+                        <button class="cart-btn" title="Add to cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Laptop">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Dell XPS 13 Laptop (2020)</h3>
+                        <div class="item-price">$650.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Student Union</div>
+                        <p>i7, 16GB RAM, 512GB SSD. Great condition, battery still holds charge well.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Mike T.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wishlist-item">
+                    <div class="wishlist-actions">
+                        <button class="remove-btn" title="Remove from wishlist"><i class="fas fa-times"></i></button>
+                        <button class="cart-btn" title="Add to cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sofa">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Compact Sofa - Perfect for Dorms</h3>
+                        <div class="item-price">$120.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> West Campus Apartments</div>
+                        <p>Comfortable 2-seater sofa, gray fabric. Moving out and need to sell quickly.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Emma L.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wishlist-item">
+                    <div class="wishlist-actions">
+                        <button class="remove-btn" title="Remove from wishlist"><i class="fas fa-times"></i></button>
+                        <button class="cart-btn" title="Add to cart"><i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1605170439002-90845e45c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Bicycle">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Trek Mountain Bike</h3>
+                        <div class="item-price">$210.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Recreation Center</div>
+                        <p>Great for getting around campus. Recently serviced with new brakes and tires.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Jason K.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Empty Wishlist State (This would be shown when wishlist is empty) -->
+            <!-- Uncomment this section and comment out the wishlist-controls and wishlist-grid to show empty state
+            <div class="wishlist-empty">
+                <i class="far fa-heart"></i>
+                <h3>Your wishlist is empty</h3>
+                <p>Items you save will appear here. Start browsing to add items to your wishlist.</p>
+                <a href="index.html" class="btn">Browse Items</a>
+            </div>
+            -->
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove item from wishlist
+            const removeButtons = document.querySelectorAll('.remove-btn');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const wishlistItem = this.closest('.wishlist-item');
+                    wishlistItem.style.opacity = '0';
+                    setTimeout(() => {
+                        wishlistItem.remove();
+                        updateWishlistCount();
+                        checkEmptyWishlist();
+                    }, 300);
+                });
+            });
+            
+            // Add to cart functionality
+            const cartButtons = document.querySelectorAll('.cart-btn');
+            cartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Item added to cart!');
+                    // Here you would typically send an AJAX request to update the user's cart
+                });
+            });
+            
+            // Clear all items
+            const clearAllButton = document.querySelector('.clear-btn');
+            if (clearAllButton) {
+                clearAllButton.addEventListener('click', function() {
+                    if (confirm('Are you sure you want to clear all items from your wishlist?')) {
+                        const wishlistItems = document.querySelectorAll('.wishlist-item');
+                        wishlistItems.forEach(item => {
+                            item.style.opacity = '0';
+                        });
+                        
+                        setTimeout(() => {
+                            wishlistItems.forEach(item => {
+                                item.remove();
+                            });
+                            updateWishlistCount();
+                            checkEmptyWishlist();
+                        }, 300);
+                    }
+                });
+            }
+            
+            // Add all to cart
+            const addAllButton = document.querySelector('.add-all-btn');
+            if (addAllButton) {
+                addAllButton.addEventListener('click', function() {
+                    alert('All items added to cart!');
+                    // Here you would typically send an AJAX request to update the user's cart
+                });
+            }
+            
+            // Update wishlist count
+            function updateWishlistCount() {
+                const wishlistItems = document.querySelectorAll('.wishlist-item');
+                const countElement = document.querySelector('.wishlist-count span');
+                if (countElement) {
+                    countElement.textContent = wishlistItems.length;
+                }
+            }
+            
+            // Check if wishlist is empty and show empty state
+            function checkEmptyWishlist() {
+                const wishlistItems = document.querySelectorAll('.wishlist-item');
+                const wishlistGrid = document.querySelector('.wishlist-grid');
+                const wishlistControls = document.querySelector('.wishlist-controls');
+                const container = document.querySelector('.wishlist-section .container');
+                
+                if (wishlistItems.length === 0) {
+                    // Create empty state
+                    wishlistGrid.style.display = 'none';
+                    wishlistControls.style.display = 'none';
+                    
+                    const emptyState = document.createElement('div');
+                    emptyState.className = 'wishlist-empty';
+                    emptyState.innerHTML = `
+                        <i class="far fa-heart"></i>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Items you save will appear here. Start browsing to add items to your wishlist.</p>
+                        <a href="index.html" class="btn">Browse Items</a>
+                    `;
+                    
+                    container.appendChild(emptyState);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

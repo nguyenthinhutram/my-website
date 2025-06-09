@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textbooks - Thanh Lý Sinh Viên</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Filter Section */
+        .filters {
+            background-color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .apply-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .apply-btn:hover {
+            background-color: #3367d6;
+        }
+        
+        .reset-btn {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .reset-btn:hover {
+            background-color: #e2e6ea;
+        }
+        
+        /* Textbooks Grid */
+        .textbooks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .textbook-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .textbook-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .textbook-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .textbook-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .textbook-card:hover .textbook-image img {
+            transform: scale(1.05);
+        }
+        
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .wishlist-btn i {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .wishlist-btn.active i, .wishlist-btn:hover i {
+            color: var(--danger-color);
+        }
+        
+        .textbook-details {
+            padding: 15px;
+        }
+        
+        .textbook-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .textbook-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .textbook-price {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .textbook-condition {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .textbook-info {
+            margin-bottom: 15px;
+        }
+        
+        .textbook-info p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        .textbook-info span {
+            font-weight: 500;
+        }
+        
+        .textbook-location {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .textbook-seller {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .seller-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        
+        .seller-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .seller-name {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .textbook-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 8px 0;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .view-btn {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .view-btn:hover {
+            background-color: #e2e6ea;
+        }
+        
+        .contact-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .contact-btn:hover {
+            background-color: #3367d6;
+        }
+        
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 4px;
+            background-color: white;
+            color: var(--dark-color);
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .pagination a:hover, .pagination a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Thanh Lý Sinh Viên</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for textbooks...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Sell Item</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Textbooks</h2>
+            <p>Find affordable textbooks from fellow students. Save money on your course materials!</p>
+        </div>
+    </section>
+    
+    <!-- Filters -->
+    <section class="container">
+        <div class="filters">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject">
+                        <option value="">All Subjects</option>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="business">Business</option>
+                        <option value="arts">Arts & Humanities</option>
+                        <option value="computer">Computer Science</option>
+                        <option value="medicine">Medicine</option>
+                        <option value="law">Law</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="condition">Condition</label>
+                    <select id="condition">
+                        <option value="">Any Condition</option>
+                        <option value="new">New</option>
+                        <option value="like-new">Like New</option>
+                        <option value="good">Good</option>
+                        <option value="fair">Fair</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-min">Price Range</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="price-min" placeholder="Min">
+                        <input type="number" id="price-max" placeholder="Max">
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="location">Location</label>
+                    <select id="location">
+                        <option value="">Any Location</option>
+                        <option value="north">North Campus</option>
+                        <option value="south">South Campus</option>
+                        <option value="east">East Campus</option>
+                        <option value="west">West Campus</option>
+                        <option value="downtown">Downtown</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn apply-btn">Apply Filters</button>
+                <button class="filter-btn reset-btn">Reset</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Textbooks Grid -->
+    <section class="container">
+        <div class="textbooks-grid">
+            <!-- Textbook 1 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Calculus Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">Calculus: Early Transcendentals</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$45.00</div>
+                        <div class="textbook-condition">Like New</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> James Stewart</p>
+                        <p><span>Edition:</span> 8th Edition</p>
+                        <p><span>ISBN:</span> 978-1285741550</p>
+                        <p><span>Course:</span> MATH 101</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Engineering Building</div>
+                    <p>Excellent condition, barely used. All pages intact with no highlights.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Sarah J.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Textbook 2 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Physics Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">University Physics with Modern Physics</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$55.00</div>
+                        <div class="textbook-condition">Good</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> Hugh D. Young, Roger A. Freedman</p>
+                        <p><span>Edition:</span> 14th Edition</p>
+                        <p><span>ISBN:</span> 978-0321973610</p>
+                        <p><span>Course:</span> PHYS 201</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Science Building</div>
+                    <p>Some highlighting and notes, but all pages intact. No damage to spine.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Alex M.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Textbook 3 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80" alt="Economics Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">Principles of Economics</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$40.00</div>
+                        <div class="textbook-condition">Good</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> N. Gregory Mankiw</p>
+                        <p><span>Edition:</span> 8th Edition</p>
+                        <p><span>ISBN:</span> 978-1305585126</p>
+                        <p><span>Course:</span> ECON 101</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Business School</div>
+                    <p>Some wear on cover, minimal highlighting. Includes study guide.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Lisa K.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Textbook 4 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Biology Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">Campbell Biology</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$60.00</div>
+                        <div class="textbook-condition">Like New</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> Lisa A. Urry, Michael L. Cain</p>
+                        <p><span>Edition:</span> 11th Edition</p>
+                        <p><span>ISBN:</span> 978-0134093413</p>
+                        <p><span>Course:</span> BIO 110</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Life Sciences Building</div>
+                    <p>Practically new, used for one semester only. No markings.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Ryan P.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Textbook 5 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Computer Science Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">Introduction to Algorithms</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$50.00</div>
+                        <div class="textbook-condition">Good</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> Thomas H. Cormen, et al.</p>
+                        <p><span>Edition:</span> 3rd Edition</p>
+                        <p><span>ISBN:</span> 978-0262033848</p>
+                        <p><span>Course:</span> CS 301</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Computer Science Building</div>
+                    <p>Some dog-eared pages, but otherwise in good condition. No writing inside.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Jennifer T.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Textbook 6 -->
+            <div class="textbook-card">
+                <div class="textbook-image">
+                    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Psychology Textbook">
+                    <div class="wishlist-btn">
+                        <i class="far fa-heart"></i>
+                    </div>
+                </div>
+                <div class="textbook-details">
+                    <h3 class="textbook-title">Psychology: An Introduction</h3>
+                    <div class="textbook-meta">
+                        <div class="textbook-price">$35.00</div>
+                        <div class="textbook-condition">Fair</div>
+                    </div>
+                    <div class="textbook-info">
+                        <p><span>Author:</span> Benjamin Lahey</p>
+                        <p><span>Edition:</span> 13th Edition</p>
+                        <p><span>ISBN:</span> 978-0078035215</p>
+                        <p><span>Course:</span> PSY 101</p>
+                    </div>
+                    <div class="textbook-location"><i class="fas fa-map-marker-alt"></i> Psychology Building</div>
+                    <p>Some highlighting in first few chapters, otherwise good condition.</p>
+                    <div class="textbook-seller">
+                        <div class="seller-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Seller Avatar">
+                        </div>
+                        <div class="seller-name">Daniel R.</div>
+                    </div>
+                    <div class="textbook-actions">
+                        <a href="#" class="action-btn view-btn">View Details</a>
+                        <a href="#" class="action-btn contact-btn">Contact Seller</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pagination -->
+    <section class="container">
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">Next &raquo;</a>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Have Textbooks to Sell?</h2>
+            <p>List your used textbooks and help fellow students save money while making some cash yourself.</p>
+            <a href="sell.html" class="hero-btn primary-btn">Sell Your Textbooks</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for textbooks page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wishlist functionality
+            const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+            if (wishlistButtons) {
+                wishlistButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                        const icon = this.querySelector('i');
+                        icon.classList.toggle('far');
+                        icon.classList.toggle('fas');
+                        
+                        // Here you would typically send an AJAX request to update the user's wishlist
+                        if (this.classList.contains('active')) {
+                            // Show a small notification
+                            const notification = document.createElement('div');
+                            notification.style.position = 'fixed';
+                            notification.style.bottom = '20px';
+                            notification.style.right = '20px';
+                            notification.style.backgroundColor = 'var(--primary-color)';
+                            notification.style.color = 'white';
+                            notification.style.padding = '10px 20px';
+                            notification.style.borderRadius = '5px';
+                            notification.style.zIndex = '1000';
+                            notification.textContent = 'Added to wishlist!';
+                            document.body.appendChild(notification);
+                            
+                            // Remove notification after 3 seconds
+                            setTimeout(() => {
+                                notification.remove();
+                            }, 3000);
+                        }
+                    });
+                });
+            }
+            
+            // Filter functionality
+            const filterForm = document.querySelector('.filters');
+            if (filterForm) {
+                const applyBtn = filterForm.querySelector('.apply-btn');
+                const resetBtn = filterForm.querySelector('.reset-btn');
+                
+                applyBtn.addEventListener('click', function() {
+                    // Here you would typically collect filter values and reload the page with query parameters
+                    alert('Filters applied! (This would filter results in a real implementation)');
+                });
+                
+                resetBtn.addEventListener('click', function() {
+                    // Reset all form fields
+                    const selects = filterForm.querySelectorAll('select');
+                    const inputs = filterForm.querySelectorAll('input');
+                    
+                    selects.forEach(select => {
+                        select.selectedIndex = 0;
+                    });
+                    
+                    inputs.forEach(input => {
+                        input.value = '';
+                    });
+                    
+                    alert('Filters reset!');
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    if (href !== '#') {
+                        e.preventDefault();
+                        
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chợ sinh viên 2H - Mua bán đồ thanh lí</title>
+    <link rel="icon" type="image/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Chợ sinh viên 2H</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩmphẩm...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html" style="color: #4285f4;"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Danh mục</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Yêu thích</a>
+                <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Đăng bán</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Mua & Bán đồ dùng của sinh viên dễ dàng</h2>
+            <p>Chợ đáng tin cậy dành cho sinh viên đại học mua và bán sách giáo khoa, đồ điện tử, đồ nội thất và nhiều thứ khác với giá cả phải chăng.</p>
+            <div class="hero-buttons">
+                <a href="browse.html" class="hero-btn primary-btn">Duyệt mục</a>
+                <a href="sell.html" class="hero-btn secondary-btn">Bán các mặt hàng của bạn</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Duyệt danh mục</h2>
+                <p>Tìm chính xác những gì bạn cần từ nhiều danh mục của chúng tôi</p>
+            </div>
+            
+            <div class="category-grid">
+                <a href="textbooks.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="category-name">Giáo trình</div>
+                </a>
+                
+                <a href="electronics.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="category-name">Điện tử</div>
+                </a>
+                
+                <a href="furniture.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <div class="category-name">Nội thất</div>
+                </a>
+                
+                <a href="clothing.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="category-name">Quần áo</div>
+                </a>
+                
+                <a href="bicycles.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <div class="category-name">Xe đạp</div>
+                </a>
+                
+                <a href="school-supplies.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="category-name">Đồ dùng học tập</div>
+                </a>
+                
+                <a href="gaming.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="category-name">Trò chơi</div>
+                </a>
+                
+                <a href="other.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="category-name">Khác</div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Items -->
+    <section class="featured-items">
+        <div class="container">
+            <div class="section-title">
+                <h2>Các mục nổi bật</h2>
+                <p>Hãy xem những mặt hàng phổ biến này từ các bạn sinh viên</p>
+            </div>
+            
+            <div class="items-grid">
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Calculus Textbook">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Giải tích 1</h3>
+                        <div class="item-price">70.000 ₫</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Engineering Building</div>
+                        <p>Excellent condition, barely used. All pages intact with no highlights.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Sarah J.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Laptop">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Dell XPS 13 Laptop (2020)</h3>
+                        <div class="item-price">$650.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Student Union</div>
+                        <p>i7, 16GB RAM, 512GB SSD. Great condition, battery still holds charge well.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Mike T.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sofa">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Compact Sofa - Perfect for Dorms</h3>
+                        <div class="item-price">$120.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> West Campus Apartments</div>
+                        <p>Comfortable 2-seater sofa, gray fabric. Moving out and need to sell quickly.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Emma L.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="item-card">
+                    <div class="item-image">
+                        <img src="https://images.unsplash.com/photo-1605170439002-90845e45c0f9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Bicycle">
+                    </div>
+                    <div class="item-details">
+                        <h3 class="item-title">Trek Mountain Bike</h3>
+                        <div class="item-price">$210.00</div>
+                        <div class="item-location"><i class="fas fa-map-marker-alt"></i> Recreation Center</div>
+                        <p>Great for getting around campus. Recently serviced with new brakes and tires.</p>
+                        <div class="item-seller">
+                            <div class="seller-avatar">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Seller Avatar">
+                            </div>
+                            <div class="seller-name">Jason K.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nó hoạt động như thế nào</h2>
+                <p>Mua và bán trên Chợ sinh viên 2H rất đơn giản và an toàn</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="step-title">Tạo tài khoản mới</h3>
+                    <p class="step-description">Đăng ký bằng email trường đại học của bạn để tham gia cộng đồng sinh viên đáng tin cậy của chúng tôi.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="step-title">Liệt kê các mục của bạn</h3>
+                    <p class="step-description">Chụp ảnh, đặt giá và tạo danh sách chỉ trong vài phút.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="step-title">Liên hệ & Nhắn tin</h3>
+                    <p class="step-description">Nhắn tin cho các sinh viên khác một cách an toàn thông qua nền tảng của chúng tôi để sắp xếp thông tin chi tiết.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="step-title">Gặp gỡ & Trao đổi</h3>
+                    <p class="step-description">Gặp mặt tại trường để hoàn tất giao dịch một cách an toàn và thuận tiện.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Những gì sinh viên nói</h2>
+                <p>Hãy lắng nghe những sinh viên khác đã sử dụng Chợ sinh viên 2H</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Đang tìm giáo trình chưa ra mà vào đây có người đang pass, quá tiện!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-details">
+                            <h4>Công chúa nắng</h4>
+                            <p>Sinh viên ngành Công nghệ thông tin</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Đã bán hết sách giáo khoa của tôi vào cuối học kỳ và kiếm lại được gần một nửa số tiền tôi đã mua. Tốt hơn nhiều so với việc mua lại ở hiệu sách!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-details">
+                            <h4>Sơn Tùng MTP</h4>
+                            <p>Sinh viên khoa Nghệ thuật</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Là một sinh viên quốc tế, nền tảng này đã giúp tôi tìm được những thứ thiết yếu giá cả phải chăng khi tôi mới đến. Cộng đồng rất hữu ích!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Testimonial Author">
+                        </div>
+                        <div class="author-details">
+                            <h4>Rosé</h4>
+                            <p>Sinh viên khoa Nghệ thuật sân khấu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Sẵn sàng mua hoặc bán?</h2>
+            <p>Tham gia cùng hàng ngàn sinh viên tại trường đại học của bạn, những người đang tiết kiệm tiền và giảm thiểu chất thải thông qua Chợ sinh viên 2H.</p>
+            <a href="account.html" class="hero-btn primary-btn">Get Started Now</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Thanh Lý Sinh Viên</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Privacy Content */
+        .privacy-section {
+            padding: 60px 0;
+        }
+        
+        .privacy-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .privacy-container h3 {
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .privacy-container h4 {
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            margin: 25px 0 15px;
+        }
+        
+        .privacy-container p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .privacy-container ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .privacy-container ul li {
+            list-style-type: disc;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .privacy-container ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .privacy-container ol li {
+            list-style-type: decimal;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .privacy-container .highlight {
+            background-color: rgba(251, 188, 5, 0.1);
+            padding: 15px;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .privacy-container .highlight p {
+            margin-bottom: 0;
+        }
+        
+        .privacy-container .last-updated {
+            font-style: italic;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+        }
+        
+        .privacy-container .section {
+            margin-bottom: 40px;
+        }
+        
+        .privacy-container .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .privacy-navigation {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .privacy-navigation h3 {
+            color: var(--dark-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .privacy-navigation ul li {
+            margin-bottom: 10px;
+        }
+        
+        .privacy-navigation ul li a {
+            color: var(--dark-color);
+            transition: color 0.3s;
+        }
+        
+        .privacy-navigation ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .privacy-navigation ul li.active a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .privacy-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: #3367d6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .privacy-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .privacy-navigation {
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .privacy-layout {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .privacy-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Thanh Lý Sinh Viên</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Sell Item</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Privacy Policy</h2>
+            <p>Learn how we collect, use, and protect your personal information.</p>
+        </div>
+    </section>
+    
+    <!-- Privacy Content -->
+    <section class="privacy-section">
+        <div class="container">
+            <div class="privacy-layout">
+                <div class="privacy-content">
+                    <div class="privacy-container">
+                        <p class="last-updated">Last Updated: November 15, 2023</p>
+                        
+                        <div class="highlight">
+                            <p>This Privacy Policy describes how Thanh Lý Sinh Viên ("we," "our," or "us") collects, uses, and shares your personal information when you use our website and services. We value your privacy and are committed to protecting your personal information.</p>
+                        </div>
+                        
+                        <div class="section" id="information-collect">
+                            <h3>1. Information We Collect</h3>
+                            <p>We collect several types of information from and about users of our platform, including:</p>
+                            
+                            <h4>1.1 Personal Information</h4>
+                            <p>When you register for an account or list items for sale, we may collect:</p>
+                            <ul>
+                                <li>Contact information (such as name, email address, phone number)</li>
+                                <li>Academic information (such as university/college name, student ID)</li>
+                                <li>Profile information (such as profile picture, bio)</li>
+                                <li>Location information (such as campus location, meeting preferences)</li>
+                            </ul>
+                            
+                            <h4>1.2 Transaction Information</h4>
+                            <p>When you buy or sell items on our platform, we collect information about the transaction, including:</p>
+                            <ul>
+                                <li>Item details (such as description, price, condition, photos)</li>
+                                <li>Communication between buyers and sellers</li>
+                                <li>Transaction status and history</li>
+                            </ul>
+                            
+                            <h4>1.3 Usage Information</h4>
+                            <p>We automatically collect information about your interactions with our platform, including:</p>
+                            <ul>
+                                <li>Log data (such as IP address, browser type, pages visited, time spent)</li>
+                                <li>Device information (such as device type, operating system)</li>
+                                <li>Location data (such as general geographic location based on IP address)</li>
+                                <li>Cookies and similar technologies (as described in our Cookie Policy)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section" id="information-use">
+                            <h3>2. How We Use Your Information</h3>
+                            <p>We use the information we collect for various purposes, including to:</p>
+                            <ul>
+                                <li>Provide, maintain, and improve our services</li>
+                                <li>Process transactions between users</li>
+                                <li>Verify your identity and student status</li>
+                                <li>Communicate with you about your account, transactions, and our services</li>
+                                <li>Send you notifications, updates, and promotional messages</li>
+                                <li>Personalize your experience and show you relevant content and listings</li>
+                                <li>Monitor and analyze trends, usage, and activities</li>
+                                <li>Detect, prevent, and address fraud, security issues, and technical problems</li>
+                                <li>Comply with legal obligations and enforce our terms and policies</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="section" id="information-sharing">
+                            <h3>3. Information Sharing and Disclosure</h3>
+                            <p>We may share your information in the following circumstances:</p>
+                            
+                            <h4>3.1 With Other Users</h4>
+                            <p>When you list an item for sale or communicate with other users, certain information is shared:</p>
+                            <ul>
+                                <li>Your profile name and photo</li>
+                                <li>Your listing details and photos</li>
+                                <li>Your general campus location</li>
+                                <li>Messages you send to other users</li>
+                            </ul>
+                            
+                            <h4>3.2 With Service Providers</h4>
+                            <p>We may share information with third-party vendors, consultants, and other service providers who need access to such information to carry out work on our behalf, such as:</p>
+                            <ul>
+                                <li>Hosting and cloud storage providers</li>
+                                <li>Customer support and communication tools</li>
+                                <li>Analytics providers</li>
+                                <li>Security and fraud prevention services</li>
+                            </ul>
+                            
+                            <h4>3.3 For Legal Reasons</h4>
+                            <p>We may share information if we believe in good faith that disclosure is necessary to:</p>
+                            <ul>
+                                <li>Comply with applicable laws, regulations, legal processes, or governmental requests</li>
+                                <li>Enforce our Terms of Service and other agreements</li>
+                                <li>Detect, investigate, prevent, or address fraud, security issues, or technical problems</li>
+                                <li>Protect the rights, property, and safety of our users, our company, or the public</li>
+                            </ul>
+                            
+                            <h4>3.4 Business Transfers</h4>
+                            <p>If we are involved in a merger, acquisition, financing, reorganization, bankruptcy, or sale of company assets, your information may be transferred as part of that transaction. We will notify you of any change in ownership or uses of your personal information.</p>
+                            
+                            <h4>3.5 With Your Consent</h4>
+                            <p>We may share information with third parties when you give us explicit consent to do so.</p>
+                        </div>
+                        
+                        <div class="section" id="data-security">
+                            <h3>4. Data Security</h3>
+                            <p>We implement reasonable security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
+                            <ul>
+                                <li>Encryption of sensitive data</li>
+                                <li>Secure user authentication procedures</li>
+                                <li>Regular security assessments</li>
+                                <li>Limited access to personal information by our employees</li>
+                            </ul>
+                            
+                            <p>However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+                        </div>
+                        
+                        <div class="section" id="data-retention">
+                            <h3>5. Data Retention</h3>
+                            <p>We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. The criteria used to determine our retention periods include:</p>
+                            <ul>
+                                <li>The length of time we have an ongoing relationship with you</li>
+                                <li>Whether there is a legal obligation to which we are subject</li>
+                                <li>Whether retention is advisable in light of our legal position (such as for statutes of limitations, litigation, or regulatory investigations)</li>
+                            </ul>
+                            
+                            <p>When we no longer need to use your personal information, we will either delete it or anonymize it so that it can no longer be associated with you.</p>
+                        </div>
+                        
+                        <div class="section" id="your-rights">
+                            <h3>6. Your Rights and Choices</h3>
+                            <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+                            
+                            <h4>6.1 Access and Update</h4>
+                            <p>You can access and update certain personal information through your account settings. If you need assistance with information that is not accessible through your account, please contact us.</p>
+                            
+                            <h4>6.2 Data Portability</h4>
+                            <p>You may request a copy of your personal information in a structured, commonly used, and machine-readable format.</p>
+                            
+                            <h4>6.3 Deletion</h4>
+                            <p>You may request that we delete your personal information. Note that we may retain certain information as required by law or for legitimate business purposes.</p>
+                            
+                            <h4>6.4 Objection and Restriction</h4>
+                            <p>You may object to our processing of your personal information or ask us to restrict processing in certain circumstances.</p>
+                            
+                            <h4>6.5 Communication Preferences</h4>
+                            <p>You can opt out of receiving promotional emails by following the instructions in those emails or by adjusting your notification settings in your account. Note that even if you opt out, we may still send you non-promotional messages, such as those about your account or our ongoing business relations.</p>
+                            
+                            <h4>6.6 Cookies</h4>
+                            <p>Most web browsers are set to accept cookies by default. You can usually adjust your browser settings to remove or reject cookies. Please note that removing or rejecting cookies could affect the availability and functionality of our services.</p>
+                        </div>
+                        
+                        <div class="section" id="children-privacy">
+                            <h3>7. Children's Privacy</h3>
+                            <p>Our services are not intended for individuals under the age of 18, and we do not knowingly collect personal information from children under 18. If we learn that we have collected personal information from a child under 18, we will take steps to delete that information as quickly as possible. If you believe that a child under 18 may have provided us with personal information, please contact us.</p>
+                        </div>
+                        
+                        <div class="section" id="international-transfers">
+                            <h3>8. International Data Transfers</h3>
+                            <p>We are based in Vietnam and process information on servers located in Vietnam and other countries. Your information may be transferred to, and processed in, countries other than the country in which you reside. These countries may have data protection laws that are different from the laws of your country.</p>
+                            
+                            <p>By using our services, you consent to the transfer of your information to countries outside of your country of residence, including to Vietnam.</p>
+                        </div>
+                        
+                        <div class="section" id="third-party-links">
+                            <h3>9. Third-Party Links and Services</h3>
+                            <p>Our services may contain links to third-party websites, products, or services. We are not responsible for the privacy practices or the content of these third-party sites. We encourage you to read the privacy policies of any third-party sites you visit.</p>
+                        </div>
+                        
+                        <div class="section" id="changes">
+                            <h3>10. Changes to This Privacy Policy</h3>
+                            <p>We may update this Privacy Policy from time to time. If we make material changes, we will notify you by email or by posting a notice on our website prior to the change becoming effective. We encourage you to review this Privacy Policy periodically for the latest information on our privacy practices.</p>
+                            
+                            <p>Your continued use of our services after any changes to this Privacy Policy constitutes your acceptance of the revised Privacy Policy.</p>
+                        </div>
+                        
+                        <div class="section" id="contact">
+                            <h3>11. Contact Us</h3>
+                            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
+                            <p>Email: privacy@thanhlysinh.vien.edu.vn</p>
+                            <p>Address: 268 Lý Thường Kiệt, Phường 14, Quận 10, Thành phố Hồ Chí Minh</p>
+                            <p>Phone: (028) 3864 7256</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="privacy-navigation">
+                    <h3>Contents</h3>
+                    <ul>
+                        <li><a href="#information-collect">1. Information We Collect</a></li>
+                        <li><a href="#information-use">2. How We Use Your Information</a></li>
+                        <li><a href="#information-sharing">3. Information Sharing</a></li>
+                        <li><a href="#data-security">4. Data Security</a></li>
+                        <li><a href="#data-retention">5. Data Retention</a></li>
+                        <li><a href="#your-rights">6. Your Rights and Choices</a></li>
+                        <li><a href="#children-privacy">7. Children's Privacy</a></li>
+                        <li><a href="#international-transfers">8. International Transfers</a></li>
+                        <li><a href="#third-party-links">9. Third-Party Links</a></li>
+                        <li><a href="#changes">10. Changes to Policy</a></li>
+                        <li><a href="#contact">11. Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript for Privacy Policy page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Table of contents highlighting
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.privacy-navigation ul li a');
+            
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                // Show/hide back to top button
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+                
+                // Highlight current section in navigation
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.parentElement.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + currentSection) {
+                        link.parentElement.classList.add('active');
+                    }
+                });
+            });
+            
+            // Back to top button click event
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+                        // Print functionality
+                        const printButton = document.getElementById('print-privacy');
+            if (printButton) {
+                printButton.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

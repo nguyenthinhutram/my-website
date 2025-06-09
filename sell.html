@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Item - Thanh Lý Sinh Viên</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Title */
+        .page-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .page-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-title p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Sell Form Section */
+        .sell-form-section {
+            padding: 60px 0;
+        }
+        
+        .sell-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .form-title {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-title h3 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .form-title p {
+            color: var(--gray-color);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-hint {
+            font-size: 0.85rem;
+            color: var(--gray-color);
+            margin-top: 5px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .photo-upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .photo-upload-area:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .photo-upload-icon {
+            font-size: 2.5rem;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        .photo-upload-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .photo-upload-text p {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+        }
+        
+        .photo-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .photo-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-item .remove-photo {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #3367d6;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--gray-color);
+            color: var(--gray-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--light-color);
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .form-divider {
+            margin: 30px 0;
+            border-top: 1px solid #eee;
+        }
+        
+        .section-heading {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        /* Tips Section */
+        .selling-tips {
+            background-color: var(--light-color);
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .selling-tips h4 {
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .selling-tips h4 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .selling-tips ul {
+            padding-left: 30px;
+        }
+        
+        .selling-tips ul li {
+            margin-bottom: 10px;
+            position: relative;
+            list-style-type: disc;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .form-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Thanh Lý Sinh Viên</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Sell Item</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Title -->
+    <section class="page-title">
+        <div class="container">
+            <h2>Sell Your Item</h2>
+            <p>List your items for free and connect with students who need what you have</p>
+        </div>
+    </section>
+    
+    <!-- Sell Form Section -->
+    <section class="sell-form-section">
+        <div class="container">
+            <div class="sell-form-container">
+                <div class="form-title">
+                    <h3>Create Your Listing</h3>
+                    <p>Fill out the details below to list your item for sale</p>
+                </div>
+                
+                <form id="sell-item-form">
+                    <!-- Basic Information -->
+                    <div class="section-heading">Basic Information</div>
+                    
+                    <div class="form-group">
+                        <label for="item-title">Item Title *</label>
+                        <input type="text" id="item-title" class="form-control" placeholder="e.g., Calculus Textbook 10th Edition" required>
+                        <div class="form-hint">Be specific and include key details like brand, model, or edition</div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-category">Category *</label>
+                            <select id="item-category" class="form-control" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option value="textbooks">Textbooks</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="furniture">Furniture</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="bicycles">Bicycles</option>
+                                <option value="school-supplies">School Supplies</option>
+                                <option value="gaming">Gaming</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="item-condition">Condition *</label>
+                            <select id="item-condition" class="form-control" required>
+                                <option value="" disabled selected>Select condition</option>
+                                <option value="new">New (never used)</option>
+                                <option value="like-new">Like New (used few times)</option>
+                                <option value="very-good">Very Good (minimal wear)</option>
+                                <option value="good">Good (normal wear)</option>
+                                <option value="acceptable">Acceptable (noticeable wear)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="item-description">Description *</label>
+                        <textarea id="item-description" class="form-control" placeholder="Describe your item in detail. Include information about features, defects, reason for selling, etc." required></textarea>
+                        <div class="form-hint">The more details you provide, the more likely your item will sell</div>
+                    </div>
+                    
+                    <!-- Price Information -->
+                    <div class="form-divider"></div>
+                    <div class="section-heading">Price Information</div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-price">Price (VND) *</label>
+                            <input type="number" id="item-price" class="form-control" placeholder="e.g., 500000" min="0" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="price-negotiable">Price Negotiability</label>
+                            <select id="price-negotiable" class="form-control">
+                                <option value="fixed">Fixed Price</option>
+                                <option value="negotiable" selected>Negotiable</option>
+                                <option value="or-best-offer">Or Best Offer</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="trade-option">
+                        <label for="trade-option">I'm open to trades or exchanges</label>
+                    </div>
+                    
+                    <!-- Photos -->
+                    <div class="form-divider"></div>
+                    <div class="section-heading">Photos</div>
+                    
+                    <div class="form-group">
+                        <label>Upload Photos (up to 5) *</label>
+                        <input type="file" id="photo-upload" accept="image/*" multiple style="display: none;">
+                        <div class="photo-upload-area" onclick="document.getElementById('photo-upload').click()">
+                            <div class="photo-upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="photo-upload-text">
+                                <h4>Drag & drop photos or click to browse</h4>
+                                <p>Add up to 5 photos. First photo will be the cover (max 5MB each)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="photo-preview" id="photo-preview">
+                            <!-- Preview images will be added here via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <!-- Location & Contact -->
+                    <div class="form-divider"></div>
+                    <div class="section-heading">Location & Contact</div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="meeting-location">Preferred Meeting Location *</label>
+                            <input type="text" id="meeting-location" class="form-control" placeholder="e.g., University Library, Student Union" required>
+                            <div class="form-hint">Choose a safe, public location on or near campus</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-preference">Contact Preference</label>
+                            <select id="contact-preference" class="form-control">
+                                <option value="app-message">In-App Messages Only</option>
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                                <option value="any">Any Method</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms & Conditions -->
+                    <div class="form-divider"></div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms-agree" required>
+                        <label for="terms-agree">I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *</label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="guidelines-agree" required>
+                        <label for="guidelines-agree">I confirm that my item complies with the <a href="guidelines.html" target="_blank">Community Guidelines</a> *</label>
+                    </div>
+                    
+                    <!-- Selling Tips -->
+                    <div class="selling-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Tips for Successful Selling</h4>
+                        <ul>
+                            <li>Use clear, well-lit photos from multiple angles</li>
+                            <li>Be honest about the condition and any defects</li>
+                            <li>Respond quickly to inquiries from potential buyers</li>
+                            <li>Meet in public places and accept secure payment methods</li>
+                            <li>Consider researching similar items to price competitively</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline">Save as Draft</button>
+                        <button type="submit" class="btn btn-primary">Publish Listing</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Photo upload preview functionality
+            const photoUpload = document.getElementById('photo-upload');
+            const photoPreview = document.getElementById('photo-preview');
+            
+            photoUpload.addEventListener('change', function() {
+                // Clear existing previews if needed
+                // photoPreview.innerHTML = '';
+                
+                // Limit to 5 photos
+                const maxFiles = 5;
+                const files = Array.from(this.files).slice(0, maxFiles);
+                
+                files.forEach(file => {
+                    // Check if it's an image
+                    if (!file.type.match('image.*')) {
+                        alert('Please upload image files only');
+                        return;
+                    }
+                    
+                    // Check file size (5MB max)
+                    if (file.size > 5 * 1024 * 1024) {
+                        alert('File size should not exceed 5MB');
+                        return;
+                    }
+                    
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const photoItem = document.createElement('div');
+                        photoItem.className = 'photo-item';
+                        
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        
+                        const removeBtn = document.createElement('div');
+                        removeBtn.className = 'remove-photo';
+                        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                        removeBtn.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                            photoItem.remove();
+                        });
+                        
+                        photoItem.appendChild(img);
+                        photoItem.appendChild(removeBtn);
+                        photoPreview.appendChild(photoItem);
+                    };
+                    
+                    reader.readAsDataURL(file);
+                });
+                
+                if (files.length >= maxFiles) {
+                    alert(`Maximum ${maxFiles} photos allowed. Only the first ${maxFiles} have been added.`);
+                }
+            });
+            
+            // Form submission
+            const sellForm = document.getElementById('sell-item-form');
+            
+            sellForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate form
+                const requiredFields = sellForm.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('is-invalid');
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+                
+                // Check if at least one photo is uploaded
+                if (photoPreview.children.length === 0) {
+                    isValid = false;
+                    alert('Please upload at least one photo of your item');
+                }
+                
+                if (isValid) {
+                    // Here you would typically send the form data to your server
+                    alert('Your listing has been submitted successfully!');
+                    // Redirect to a success page or the user's listings
+                    // window.location.href = 'my-listings.html';
+                }
+            });
+            
+            // Save as draft functionality
+            const saveAsDraftBtn = document.querySelector('.btn-outline');
+            
+            saveAsDraftBtn.addEventListener('click', function() {
+                // Here you would save the current form state
+                alert('Your listing has been saved as a draft');
+            });
+        });
+    </script>
+</body>
+</html>

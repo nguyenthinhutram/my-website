@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chợ sinh viên 2H</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .mission-container {
+            text-align: center;
+        }
+        
+        .mission-container h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .mission-container p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .value-title {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .value-text {
+            color: var(--gray-color);
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-container {
+            text-align: center;
+        }
+        
+        .team-container h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .team-container p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-details {
+            padding: 20px;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .team-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-bio {
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .team-social a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            transition: all 0.3s;
+        }
+        
+        .team-social a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-container h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-container p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .primary-btn:hover {
+            background-color: var(--light-color);
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .page-header h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content h3,
+            .mission-container h3,
+            .team-container h3,
+            .cta-container h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Chợ sinh viên 2H</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="browse.html"><i class="fas fa-th-large"></i> Danh mục</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Yêu thích</a>
+                <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Đăng bán</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Giới thiệu về Chợ sinh viên 2H</h2>
+            <p>Tìm hiểu về tiểu sử ra đời, sứ mệnh và giá trị của Chợ sinh viên 2H cũng như đội ngũ vận hành đằng sau</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Tiểu sử </h3>
+                    <p>Chợ sinh viên 2H được thành lập vào năm 2025 bởi một nhóm sinh viên đại học đang cảm thấy thất vọng với các lựa chọn hiện có để mua và bán các mặt hàng đã qua sử dụng trong khuôn viên trường. Họ muốn tạo ra một nền tảng được thiết kế riêng cho nhu cầu riêng biệt của sinh viên đại học.</p>
+                    <p>Những gì bắt đầu như một dự án nhỏ tại một trường đại học giờ đã phát triển thành một thị trường đáng tin cậy phục vụ sinh viên trên hàng chục cơ sở trên toàn quốc. Nền tảng của chúng tôi giúp sinh viên tiết kiệm tiền, giảm chất thải và kết nối với cộng đồng sinh viên trong trường của họ.</p>
+                    <p>Ngày nay, Chợ sinh viên 2H tạo điều kiện cho hàng nghìn giao dịch mỗi tháng, giúp sinh viên tìm được sách giáo trình, đồ nội thất, đồ điện tử giá cả phải chăng, đồng thời cung cấp một cách an toàn và thuận tiện để bán những mặt hàng họ không còn cần đến nữa.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Students using Campus Marketplace">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-container">
+                <h3>Sứ mệnh và giá trị</h3>
+                <p>Tại Chợ sinh viên 2H, sứ mệnh của chúng tôi là tạo ra một nền tảng bền vững, giá cả phải chăng và an toàn cho sinh viên đại học để mua và bán các mặt hàng đã qua sử dụng trong cộng đồng sinh viên trường nơi sinh viên học.</p>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="value-title">An toàn là trên hết</h4>
+                        <p class="value-text">Chúng tôi ưu tiên sự an toàn của người dùng thông qua các tài khoản đã xác minh, địa điểm họp an toàn và hướng dẫn an toàn toàn diện.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="value-title">Tính bền vững</h4>
+                        <p class="value-text">Bằng cách tạo điều kiện tái sử dụng các mặt hàng, chúng tôi giúp giảm thiểu chất thải và thúc đẩy thói quen tiêu dùng bền vững ở học sinh.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h4 class="value-title">Khả năng chi trả</h4>
+                        <p class="value-text">Chúng tôi cam kết giúp sinh viên tiết kiệm tiền bằng cách cung cấp nền tảng miễn phí để tìm các lựa chọn thay thế giá cả phải chăng cho các mặt hàng mới.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="value-title">Cộng đồng</h4>
+                        <p class="value-text">Chúng tôi thúc đẩy mối liên kết giữa các sinh viên trong khuôn viên trường, tạo ra một mạng lưới đáng tin cậy để trao đổi hàng hóa và tài nguyên.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="value-title">Niềm tin và sự minh bạch</h4>
+                        <p class="value-text">Nền tảng của chúng tôi được xây dựng dựa trên mô tả trung thực, giá cả hợp lý và chính sách minh bạch cho tất cả người dùng.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4 class="value-title">Lấy sinh viên làm trung tâm</h4>
+                        <p class="value-text">Mỗi tính năng và chính sách đều được thiết kế có tính đến nhu cầu và hoàn cảnh riêng của học sinh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="team-container">
+                <h3>Gặp gỡ đội ngũ của chúng tôi</h3>
+                <p>Chợ sinh viên 2H được xây dựng và duy trì bởi một nhóm sinh viên tận tụy, những người hiểu được những thách thức của cuộc sống trong khuôn viên trường.</p>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="NGUYENVANHOA.jpg" alt="Team Member">
+                        </div>
+                        <div class="team-details">
+                            <h4 class="team-name">Nguyễn Văn Hòa</h4>
+                            <p class="team-role">Full Stack Developer</p>
+                            <p class="team-bio">Trưởng nhóm Bét Designer. Đam mê công nghệ giải quyết các vấn đề thực tế.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="LETHEHAI.jpg" alt="Team Member">
+                        </div>
+                        <div class="team-details">
+                            <h4 class="team-name">Lê Thế Hải</h4>
+                            <p class="team-role">Back-end Developer</p>
+                            <p class="team-bio">Thành viên nhóm Bét Designer. Thích lập trình và tham gia các dự án liên quan đến CNTT</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="NXN.jpg" alt="Team Member">
+                        </div>
+                        <div class="team-details">
+                            <h4 class="team-name">Nguyễn Xuân Ngọc</h4>
+                            <p class="team-role">Front-end Developer</p>
+                            <p class="team-bio">Thành viên nhóm Bét Designer. Có sở thích về đồ họa, thiết kế giao diện.</p>
+                            <div class="team-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="NTNT.jpg" alt="Team Member">
+                        </div>
+                        <div class="team-details">
+                            <h4 class="team-name">Nguyễn Thị Như Trâm</h4>
+                            <p class="team-role">Front-end Developer</p>
+                            <p class="team-bio">Thành viên nhóm Bét Designer. Yêu thích CNTT từ nhỏ, thích khám phá những dòng code.</p>
+                            <div class="team-social">
+                                <a href="https://www.instagram.com/duykhai_006/profilecard/?igsh=ZnJpdTJpbnJvMGNj"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.facebook.com/share/16DiYwqkPT/?mibextid=wwXIfr"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-container">
+                <h3>Tham gia cộng đồng sinh viên của chúng tôi</h3>
+                <p>Sẵn sàng bắt đầu mua và bán tại trường? Tạo tài khoản ngay hôm nay và tham gia cùng hàng ngàn sinh viên đang sử dụng Chợ sinh viên 2H.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn primary-btn">Đăng ký ngay</a>
+                    <a href="contact.html" class="cta-btn secondary-btn">Liên hệ với chúng tôi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng đáng tin cậy cho sinh viên đại học mua và bán các mặt hàng đã qua sử dụng một cách an toàn và thuận tiện.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="browse.html">Danh mục sản phẩm</a></li>
+                        <li><a href="sell.html">Đăng bán </a></li>
+                        <li><a href="about.html">Về chúng tôi</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục sản phẩm</h3>
+                    <ul>
+                        <li><a href="category.html?cat=textbooks">Giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Đồ nội thấtthất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Mẹo và trợ giúp</h3>
+                    <ul>
+                        <li><a href="faq.html">Các câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản dịch vụ</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Mọi quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

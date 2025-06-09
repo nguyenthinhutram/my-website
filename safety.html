@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Tips - Thanh Lý Sinh Viên</title>
+    <link rel="icon" type="Logo_07/png" href="Logo_07.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --danger-color: #ea4335;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gray-color: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-color);
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links .btn:hover {
+            background-color: #3367d6;
+            color: white;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .page-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Safety Tips Section */
+        .safety-section {
+            padding: 60px 0;
+        }
+        
+        .safety-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .safety-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .safety-intro p {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .safety-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .safety-card {
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .safety-card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .safety-card-header i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .safety-card-header h3 {
+            font-size: 1.5rem;
+        }
+        
+        .safety-card-body {
+            padding: 25px;
+        }
+        
+        .safety-card-body p {
+            margin-bottom: 15px;
+        }
+        
+        .safety-card-body ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .safety-card-body ul li {
+            margin-bottom: 10px;
+        }
+        
+        .safety-card-body .highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .safety-card-body .danger {
+            background-color: #f8d7da;
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .safety-card-body .success {
+            background-color: #d4edda;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        /* Emergency Contact */
+        .emergency-contact {
+            background-color: #f8d7da;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .emergency-contact h3 {
+            color: var(--danger-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact h3 i {
+            margin-right: 10px;
+        }
+        
+        .emergency-contact p {
+            margin-bottom: 15px;
+        }
+        
+        .emergency-contact ul {
+            list-style: none;
+        }
+        
+        .emergency-contact ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .emergency-contact ul li i {
+            margin-right: 10px;
+            color: var(--danger-color);
+        }
+        
+        /* Safety Video */
+        .safety-video {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .safety-video h3 {
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Report Section */
+        .report-section {
+            background-color: var(--light-color);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .report-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .report-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: var(--gray-color);
+        }
+        
+        .report-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--danger-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .report-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                max-width: 100%;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                margin: 0 10px;
+            }
+            
+            .page-header h2 {
+                font-size: 2rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .safety-categories {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .category-btn {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="Logo_04.png" alt="Campus Marketplace Logo">
+                <h1>Thanh Lý Sinh Viên</h1>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for items...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="categories.html"><i class="fas fa-th-large"></i> Categories</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Favorites</a>
+                <a href="account.html"><i class="fas fa-user"></i> Account</a>
+                <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Sell Item</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Safety Tips</h2>
+            <p>Your safety is our top priority. Follow these guidelines to ensure safe transactions.</p>
+        </div>
+    </section>
+    
+    <!-- Safety Tips Section -->
+    <section class="safety-section">
+        <div class="container safety-container">
+            <div class="safety-intro">
+                <p>While most transactions on our platform go smoothly, it's important to take precautions when buying and selling items. We've compiled these safety tips to help you have a positive experience.</p>
+            </div>
+            
+            <!-- Safety Categories -->
+            <div class="safety-categories">
+                <button class="category-btn active" data-category="all">All Tips</button>
+                <button class="category-btn" data-category="account">Account Safety</button>
+                <button class="category-btn" data-category="meeting">Meeting Safety</button>
+                <button class="category-btn" data-category="payment">Payment Safety</button>
+                <button class="category-btn" data-category="communication">Communication</button>
+            </div>
+            
+            <!-- Account Safety -->
+            <div class="safety-card" data-category="account">
+                <div class="safety-card-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Account Safety</h3>
+                </div>
+                <div class="safety-card-body">
+                    <p>Protecting your account is the first step to a safe experience on our platform.</p>
+                    
+                    <ul>
+                        <li><strong>Use a strong, unique password</strong> - Create a password that's at least 12 characters long with a mix of letters, numbers, and symbols.</li>
+                        <li><strong>Never share your password</strong> - Our staff will never ask for your password. If someone claims to be from our team and asks for your password, report them immediately.</li>
+                        <li><strong>Use your university email</strong> - Always register with your university email address to help us maintain a trusted community.</li>
+                        <li><strong>Enable two-factor authentication</strong> - Add an extra layer of security to your account by enabling 2FA in your account settings.</li>
+                        <li><strong>Log out on shared computers</strong> - Always log out when using public or shared computers to prevent unauthorized access to your account.</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <p><strong>Pro Tip:</strong> Regularly check your account activity for any suspicious actions you don't recognize. If you notice anything unusual, change your password immediately and contact our support team.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Meeting Safety -->
+            <div class="safety-card" data-category="meeting">
+                <div class="safety-card-header">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Meeting Safety</h3>
+                </div>
+                <div class="safety-card-body">
+                    <p>When it's time to meet and complete your transaction, follow these guidelines to stay safe:</p>
+                    
+                    <ul>
+                        <li><strong>Meet in public places</strong> - Always meet in busy, well-lit public areas on campus. Good options include the student union, library, or campus coffee shops.</li>
+                        <li><strong>Meet during daylight hours</strong> - Try to schedule meetings during daytime when more people are around.</li>
+                        <li><strong>Bring a friend</strong> - If possible, don't go alone, especially for high-value items or when meeting someone for the first time.</li>
+                        <li><strong>Tell someone where you're going</strong> - Let a friend or family member know where you're meeting, who you're meeting, and when you expect to return.</li>
+                        <li><strong>Use designated safe exchange zones</strong> - Many campuses have designated areas for exchanges that may be monitored by security cameras.</li>
+                        <li><strong>Trust your instincts</strong> - If something feels off about the meeting or the person, don't hesitate to cancel or reschedule.</li>
+                    </ul>
+                    
+                    <div class="danger">
+                        <p><strong>Warning:</strong> Never meet at private residences, isolated locations, or in vehicles for first-time meetings. Don't invite strangers to your dorm or apartment, and don't go to theirs.</p>
+                    </div>
+                    
+                    <div class="success">
+                        <p><strong>Recommended Meeting Spots on Campus:</strong></p>
+                        <ul>
+                            <li>Student Union Building lobby</li>
+                            <li>Main Library entrance</li>
+                            <li>Campus cafeterias during busy hours</li>
+                            <li>University Center</li>
+                            <li>Near campus security office</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Safety -->
+            <div class="safety-card" data-category="payment">
+                <div class="safety-card-header">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Payment Safety</h3>
+                </div>
+                <div class="safety-card-body">
+                    <p>Protect yourself from payment scams with these guidelines:</p>
+                    
+                    <ul>
+                        <li><strong>Use cash for in-person transactions</strong> - Cash is the safest method for in-person exchanges.</li>
+                        <li><strong>Count money in person</strong> - Always count cash at the time of the transaction, before handing over the item.</li>
+                        <li><strong>Be wary of payment apps</strong> - If using payment apps (like Venmo or Cash App), confirm the payment has been completed and is in your account before handing over items.</li>
+                        <li><strong>Inspect items before paying</strong> - Thoroughly check that the item matches the description and is in the expected condition before completing payment.</li>
+                        <li><strong>Keep receipts</strong> - For higher-value items, consider writing a simple receipt that both parties sign.</li>
+                    </ul>
+                    
+                    <div class="danger">
+                        <p><strong>Red Flags - Avoid These Payment Methods:</strong></p>
+                        <ul>
+                            <li>Wire transfers</li>
+                            <li>Money orders or cashier's checks</li>
+                            <li>Payment requests from unknown apps</li>
+                            <li>Requests to ship items before payment clears</li>
+                            <li>Overpayment scenarios where the seller asks you to return the difference</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Communication Safety -->
+            <div class="safety-card" data-category="communication">
+                <div class="safety-card-header">
+                    <i class="fas fa-comments"></i>
+                    <h3>Communication Safety</h3>
+                </div>
+                <div class="safety-card-body">
+                    <p>Safe communication practices help protect your privacy and prevent scams:</p>
+                    
+                    <ul>
+                        <li><strong>Keep communication on our platform</strong> - Use our messaging system for all transaction-related communication so we have a record if issues arise.</li>
+                        <li><strong>Protect personal information</strong> - Don't share unnecessary personal details like your home address, financial information, or ID numbers.</li>
+                        <li><strong>Be wary of urgent requests</strong> - Scammers often create false urgency to pressure you into making quick decisions.</li>
+                        <li><strong>Watch for red flags in messages</strong> - Poor grammar, requests to use alternate payment methods, or offers that seem too good to be true are warning signs.</li>
+                        <li><strong>Document your conversations</strong> - Keep records of your messages in case you need to report an issue later.</li>
+                    </ul>
+                    
+                    <div class="highlight">
+                        <p><strong>Example of a Safe Initial Message:</strong><br>
+                        "Hi, I'm interested in the textbook you listed. Is it still available? I'm on campus Monday-Thursday and could meet at the Student Union if that works for you. Thanks!"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Emergency Contact Information -->
+            <div class="emergency-contact">
+                <h3><i class="fas fa-exclamation-triangle"></i> Emergency Contacts</h3>
+                <p>If you ever feel unsafe or encounter an emergency situation during a transaction, don't hesitate to contact:</p>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <strong>Campus Security:</strong> (XXX) XXX-XXXX</li>
+                    <li><i class="fas fa-phone"></i> <strong>Local Police:</strong> 911 (for emergencies) or (XXX) XXX-XXXX (non-emergency)</li>
+                    <li><i class="fas fa-envelope"></i> <strong>Platform Support:</strong> support@thanhlysinh.vien</li>
+                </ul>
+                <p>Your safety is more important than any transaction. If something doesn't feel right, walk away and report the incident.</p>
+            </div>
+            
+            <!-- Safety Video -->
+            <div class="safety-video">
+                <h3>Watch Our Safety Guide</h3>
+                <div class="video-container">
+                    <!-- Replace with your actual video embed code -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Campus Marketplace Safety Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Report Section -->
+    <section class="report-section">
+        <div class="container">
+            <h3>Report a Problem</h3>
+            <p>If you encounter suspicious behavior, scams, or safety concerns while using our platform, please report it immediately.</p>
+            <a href="report.html" class="report-btn">Report an Issue</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>Chợ sinh viên 2H</h3>
+                    <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="categories.html">Danh mục</a></li>
+                        <li><a href="sell.html">Đăng bán</a></li>
+                        <li><a href="about.html">Giới thiệu</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Danh mục</h3>
+                    <ul>
+                        <li><a href="textbooks.html">Sách giáo trình</a></li>
+                        <li><a href="category.html?cat=electronics">Đồ điện tử</a></li>
+                        <li><a href="category.html?cat=furniture">Nội thất</a></li>
+                        <li><a href="category.html?cat=clothing">Quần áo</a></li>
+                        <li><a href="category.html?cat=bicycles">Xe đạp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="faq.html">Câu hỏi thường gặp</a></li>
+                        <li><a href="safety.html">Mẹo an toàn</a></li>
+                        <li><a href="terms.html">Điều khoản sử dụng</a></li>
+                        <li><a href="privacy.html">Chính sách bảo mật</a></li>
+                        <li><a href="support.html">Trung tâm hỗ trợ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Chợ sinh viên 2H. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category filtering
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const safetyCards = document.querySelectorAll('.safety-card');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const category = button.getAttribute('data-category');
+                    
+                    // Show/hide safety cards based on category
+                    safetyCards.forEach(card => {
+                        if (category === 'all' || card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
