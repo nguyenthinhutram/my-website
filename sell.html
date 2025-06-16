@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bán hàng của bạn - Chợ sinh viên 2H</title>
+    <title>Đăng bán - Chợ sinh viên 2H</title>
     <link rel="icon" type="Logo_07/png" href="Logo_07.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -490,18 +490,18 @@
         <div class="container header-container">
             <div class="logo">
                 <img src="Logo_04.png" alt="Campus Marketplace Logo">
-                <h1>Bán hàng của bạn - Chợ sinh viên 2H</h1>
+                <h1>Chợ sinh viên 2H</h1>
             </div>
             
             <div class="search-bar">
-                <input type="text" placeholder="Search for items...">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
                 <button><i class="fas fa-search"></i></button>
             </div>
             
             <div class="nav-links">
-                <a href="index.html"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="index.html" style="color: #4285f4;"><i class="fas fa-home"></i> Trang chủ</a>
                 <a href="categories.html"><i class="fas fa-th-large"></i> Danh mục</a>
-                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Yêu thích</a>
                 <a href="account.html"><i class="fas fa-user"></i> Tài khoản</a>
                 <a href="sell.html" class="btn"><i class="fas fa-plus"></i> Đăng bán</a>
             </div>
@@ -511,7 +511,7 @@
     <!-- Page Title -->
     <section class="page-title">
         <div class="container">
-            <h2>Bán hàng của bạn</h2>
+            <h2>Bán mặt hàng của bạn</h2>
             <p>Liệt kê các mặt hàng của bạn miễn phí và kết nối với những sinh viên cần những gì bạn có</p>
         </div>
     </section>
@@ -531,7 +531,7 @@
                     
                     <div class="form-group">
                         <label for="item-title">Tiêu đề mục *</label>
-                        <input type="text" id="item-title" class="form-control" placeholder="e.g., Calculus Textbook 10th Edition" required>
+                        <input type="text" id="item-title" class="form-control" placeholder="ví dụ: Sách giáo khoa Giải tích, Phiên bản thứ 10" required>
                         <div class="form-hint">Hãy cụ thể và bao gồm các chi tiết chính như thương hiệu, kiểu máy hoặc phiên bản</div>
                     </div>
                     
@@ -540,17 +540,13 @@
                             <label for="item-category">Danh mục *</label>
                             <select id="item-category" class="form-control" required>
                                 <option value="" disabled selected>Chọn một danh mục</option>
-                                <option value="textbooks">Giáo trình</option>
-                                <option value="electronics">Đồ điện tử</option>
+                                <option value="textbooks">Sách giáo khoa</option>
+                                <option value="electronics">Điện tử</option>
                                 <option value="furniture">Nội thất</option>
                                 <option value="clothing">Quần áo</option>
                                 <option value="bicycles">Xe đạp</option>
-                                <option value="school-supplies">Dụng cụ học tập</option>
-                                <option value="gaming">Đồ chơi game</option>
-                                <option value="kitchen">Đồ dùng nhà bếp</option>
-                                <option value="sports">Dụng cụ thể thao</option>
-                                <option value="musical">Nhạc cụ</option>
-                                <option value="skin">Mỹ phẩm & làm đẹp</option>
+                                <option value="school-supplies">Đồ dùng học tập</option>
+                                <option value="gaming">Trò chơi</option>
                                 <option value="other">Khác</option>
                             </select>
                         </div>
@@ -558,9 +554,9 @@
                         <div class="form-group">
                             <label for="item-condition">Tình trạng *</label>
                             <select id="item-condition" class="form-control" required>
-                                <option value="" disabled selected>Chọn điều kiện</option>
+                                <option value="" disabled selected>Chọn tình trạng</option>
                                 <option value="new">Mới (chưa bao giờ sử dụng)</option>
-                                <option value="like-new">Như mới (sử dụng 1 đến 2 lần)</option>
+                                <option value="like-new">Như mới (sử dụng vài lần)</option>
                                 <option value="very-good">Rất tốt (ít hao mòn)</option>
                                 <option value="good">Tốt (mặc bình thường)</option>
                                 <option value="acceptable">Có thể chấp nhận được (có thể nhận thấy sự hao mòn)</option>
@@ -570,7 +566,7 @@
                     
                     <div class="form-group">
                         <label for="item-description">Sự miêu tả *</label>
-                        <textarea id="item-description" class="form-control" placeholder="Describe your item in detail. Include information about features, defects, reason for selling, etc." required></textarea>
+                        <textarea id="item-description" class="form-control" placeholder="Mô tả chi tiết sản phẩm của bạn. Bao gồm thông tin về tính năng, lỗi, lý do bán, v.v." required></textarea>
                         <div class="form-hint">Bạn cung cấp càng nhiều thông tin chi tiết thì khả năng bán được sản phẩm của bạn càng cao</div>
                     </div>
                     
@@ -580,16 +576,16 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="item-price">Giá (VND) *</label>
-                            <input type="number" id="item-price" class="form-control" placeholder="e.g., 500000" min="0" required>
+                            <label for="item-price">Giá (VNĐ) *</label>
+                            <input type="number" id="item-price" class="form-control" placeholder="ví dụ: 500.000" min="0" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="price-negotiable">Thương lượng giá</label>
+                            <label for="price-negotiable">Giá cả có thể thương lượng</label>
                             <select id="price-negotiable" class="form-control">
                                 <option value="fixed">Giá cố định</option>
                                 <option value="negotiable" selected>Có thể thương lượng</option>
-                                <option value="or-best-offer">Hoặc ưu đãi tốt nhất</option>
+                                <option value="or-best-offer">Hoặc giá tốt nhất</option>
                             </select>
                         </div>
                     </div>
@@ -601,7 +597,7 @@
                     
                     <!-- Photos -->
                     <div class="form-divider"></div>
-                    <div class="section-heading">Ảnh</div>
+                    <div class="section-heading">Hình ảnh</div>
                     
                     <div class="form-group">
                         <label>Tải ảnh lên (tối đa 5 ảnh) *</label>
@@ -623,22 +619,22 @@
                     
                     <!-- Location & Contact -->
                     <div class="form-divider"></div>
-                    <div class="section-heading">Vị trí & Liên hệ</div>
+                    <div class="section-heading">Địa điểm & Liên hệ</div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="meeting-location">Địa điểm họp ưa thích *</label>
-                            <input type="text" id="meeting-location" class="form-control" placeholder="e.g., University Library, Student Union" required>
+                            <input type="text" id="meeting-location" class="form-control" placeholder="ví dụ: Thư viện trường đại học, Hội sinh viên" required>
                             <div class="form-hint">Chọn một địa điểm công cộng an toàn trong hoặc gần trường</div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="contact-preference">Tùy chọn liên hệ</label>
+                            <label for="contact-preference">Sở thích liên lạc</label>
                             <select id="contact-preference" class="form-control">
                                 <option value="app-message">Chỉ tin nhắn trong ứng dụng</option>
                                 <option value="email">Email</option>
-                                <option value="phone">Điện thoại</option>
-                                <option value="any">Bất kỳ phương pháp nào</option>
+                                <option value="phone">Số điện thoại</option>
+                                <option value="any">Phương thức khác</option>
                             </select>
                         </div>
                     </div>
@@ -648,30 +644,30 @@
                     
                     <div class="checkbox-group">
                         <input type="checkbox" id="terms-agree" required>
-                        <label for="terms-agree">I agree to the <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a> *</label>
+                        <label for="terms-agree">Tôi đồng ý với <a href="terms.html" target="_blank">Điều khoản dịch vụ</a> và <a href="privacy.html" target="_blank">Chính sách bảo mật</a> *</label>
                     </div>
                     
                     <div class="checkbox-group">
                         <input type="checkbox" id="guidelines-agree" required>
-                        <label for="guidelines-agree">I confirm that my item complies with the <a href="guidelines.html" target="_blank">Community Guidelines</a> *</label>
+                        <label for="guidelines-agree">Tôi xác nhận rằng mặt hàng của tôi tuân thủ <a href="guidelines.html" target="_blank">Nguyên tắc cộng đồng</a> *</label>
                     </div>
                     
                     <!-- Selling Tips -->
                     <div class="selling-tips">
-                        <h4><i class="fas fa-lightbulb"></i> Tips for Successful Selling</h4>
+                        <h4><i class="fas fa-lightbulb"></i> Mẹo bán hàng thành công</h4>
                         <ul>
-                            <li>Use clear, well-lit photos from multiple angles</li>
-                            <li>Be honest about the condition and any defects</li>
-                            <li>Respond quickly to inquiries from potential buyers</li>
-                            <li>Meet in public places and accept secure payment methods</li>
-                            <li>Consider researching similar items to price competitively</li>
+                            <li>Sử dụng ảnh rõ nét, đủ sáng từ nhiều góc độ</li>
+                            <li>Hãy trung thực về tình trạng và bất kỳ khiếm khuyết nào</li>
+                            <li>Phản hồi nhanh chóng các yêu cầu từ người mua tiềm năng</li>
+                            <li>Gặp gỡ ở nơi công cộng và chấp nhận phương thức thanh toán an toàn</li>
+                            <li>Hãy cân nhắc nghiên cứu các mặt hàng tương tự để có giá cạnh tranh</li>
                         </ul>
                     </div>
                     
                     <!-- Form Actions -->
                     <div class="form-actions">
-                        <button type="button" class="btn btn-outline">Save as Draft</button>
-                        <button type="submit" class="btn btn-primary">Publish Listing</button>
+                        <button type="button" class="btn btn-outline">Lưu dưới dạng bản nháp</button>
+                        <button type="submit" class="btn btn-primary">Xuất bản danh sách</button>
                     </div>
                 </form>
             </div>
@@ -686,9 +682,9 @@
                     <h3>Chợ sinh viên 2H</h3>
                     <p>Nền tảng tin cậy để sinh viên mua bán đồ cũ an toàn và tiện lợi.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/nt13.07.06"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/duykhai_006/profilecard/"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -786,49 +782,49 @@
                 });
                 
                 if (files.length >= maxFiles) {
-                    alert(`Maximum ${maxFiles} photos allowed. Only the first ${maxFiles} have been added.`);
+                    alert(`Tối đa ${maxFiles} cho phép chụp ảnh. Chỉ có ảnh đầu tiên ${maxFiles} đã được thêm vào.`);
                 }
             });
             
             // Form submission
-            const sellForm = document.getElementById('sell-item-form');
+            const sellForm = document.getElementById('mẫu bán sản phẩm');
             
-            sellForm.addEventListener('submit', function(e) {
+            sellForm.addEventListener('nộp', function(e) {
                 e.preventDefault();
                 
                 // Validate form
-                const requiredFields = sellForm.querySelectorAll('[required]');
+                const requiredFields = sellForm.querySelectorAll('[yêu cầu]');
                 let isValid = true;
                 
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
                         isValid = false;
-                        field.classList.add('is-invalid');
+                        field.classList.add('không hợp lệ');
                     } else {
-                        field.classList.remove('is-invalid');
+                        field.classList.remove('không hợp lệ');
                     }
                 });
                 
                 // Check if at least one photo is uploaded
                 if (photoPreview.children.length === 0) {
                     isValid = false;
-                    alert('Please upload at least one photo of your item');
+                    alert('Vui lòng tải lên ít nhất một bức ảnh về sản phẩm của bạn');
                 }
                 
                 if (isValid) {
                     // Here you would typically send the form data to your server
-                    alert('Your listing has been submitted successfully!');
+                    alert('Danh sách của bạn đã được gửi thành công!');
                     // Redirect to a success page or the user's listings
                     // window.location.href = 'my-listings.html';
                 }
             });
             
             // Save as draft functionality
-            const saveAsDraftBtn = document.querySelector('.btn-outline');
+            const saveAsDraftBtn = document.querySelector('.btn-phác thảo');
             
-            saveAsDraftBtn.addEventListener('click', function() {
+            saveAsDraftBtn.addEventListener('nhấp chuột', function() {
                 // Here you would save the current form state
-                alert('Your listing has been saved as a draft');
+                alert('Danh sách của bạn đã được lưu dưới dạng bản nháp');
             });
         });
     </script>
